@@ -6,7 +6,7 @@ module.exports = {
     async saveWord(req, res) {
         const { word, syn, ant } = req.body
 
-        if (!word || !syn) return res.status(400).send()
+        if (!word) return res.status(400).send()
 
         const findWord = await FindOneWord(word)
 

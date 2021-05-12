@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./src/bin/server.js",
     "dev": "nodemon ./src/bin/server.js",
-    "test": "jest --config=jest.config.json --detectOpenHandles --watchAll"
+    "test": "jest --config=jest.config.json --detectOpenHandles --watchAll",
+    "test-blog": "jest --config=jest.config.json --detectOpenHandles --watch src/test/blog.test.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.11.9",
     "morgan": "^1.10.0"
   },
