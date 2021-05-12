@@ -3,7 +3,7 @@ const router = express.Router()
 const cors = require('cors')
 
 const opt = {
-    origin: [process.env.CORS]
+    origin: [process.env.CORS,process.env.CORS2]
 }
 
 const { saveblog } = require('./controller')
