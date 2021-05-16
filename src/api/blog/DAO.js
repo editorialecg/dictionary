@@ -1,13 +1,14 @@
 const blogModel = require('../../models/blogModel')
 
 module.exports = {
+
     async saveblog(title, content, date) {
-        return new Promise((resolve, reject) => blogModel.create({
+        return new Promise((resolve,reject) => blogModel.create({
             title: title, content: content, date: date
-        }), (err, data) => {
-            if (err) return reject(err)
+        }, (err,data) =>{
+            if(err) return reject(err)
             resolve(data)
-        })
+        }))
     },
 
     async findTitle(title) {
