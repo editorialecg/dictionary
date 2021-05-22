@@ -4,7 +4,7 @@ const { sendSaveWord } = require('./DTO')
 module.exports = {
 
     async saveWord(req, res) {
-        const { word, syn, ant } = req.body
+        const { word, syn, ant } = req.body.body
 
         if (!word) return res.status(400).send()
 
@@ -31,7 +31,7 @@ module.exports = {
 
         const send = await sendSaveWord(findWord.word, findWord.synonymous, findWord.antonym)
 
-        return res.status(200).json({send})
+        return res.status(200).json({ send })
     }
 
 
