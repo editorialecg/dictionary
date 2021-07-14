@@ -1,26 +1,36 @@
-const express = require('express');
+import express, { urlencoded, json } from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
+import { graphqlHTTP } from 'express-graphql';
+import Blog from './models/blogModel'
+import Dict from './models/wordModel'
+import schema from './graph/schema'
+import resolvers from './graph/resolvers'
 const app = express();
-const morgan = require('morgan');
-const bodyParser = require('body-parser')
-const cors = require('cors');
 require('dotenv').config();
-
 
 // Middleware
 app.use(morgan('dev'));
-app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.urlencoded({
+app.use(urlencoded({
     extended: true
 }));
-app.use(express.json());
-
+app.use(json());
+app.use(cors({
+	origin: '*'
+}))
 // db
-const dbConnect = require('./db/db');
+const db = require('./db/db');
 
-// Routes
-app.use(require('./routes/routes'));
 
-module.exports = app
+app.use('/graphql', graphqlHTTP({
+	schema: schema,
+	rootValue: resolvers,
+	context: {
+		Dict,
+		Blog,
+	},
+	graphiql: true,
+}));
+
+export default app
 

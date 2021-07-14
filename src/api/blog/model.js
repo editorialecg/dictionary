@@ -1,14 +1,10 @@
-const { saveblog, findTitle } = require('./DAO')
+import { saveblogDao, findTitleDao } from './DAO'
 
 
-module.exports = {
-    async saveblog(title, content, date) {
-        return await saveblog(title, content, date)
-    },
-
-    async findTitle(title){
-        return await findTitle(title)
-    }
-
+export async function saveblog(title, content, img, date, signed) {
+    return await saveblogDao(title, content, img, date, signed)
+}
+export async function findTitle(title) {
+    return await findTitleDao(title)
 }
 

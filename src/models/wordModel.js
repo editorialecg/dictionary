@@ -1,18 +1,18 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const wordSynAnt = mongoose.Schema({
+const wordSynAnt = Schema({
     word: {
         type: String
     },
     synonymous: {
         type: [String],
-        default: []
+        
     },
     antonym: {
         type: [String],
-        default: []
+        
     }
 
 });
 
-module.exports = mongoose.model('wordSynAnt', wordSynAnt);
+export default model('wordSynAnt', wordSynAnt);
