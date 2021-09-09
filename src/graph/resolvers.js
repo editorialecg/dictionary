@@ -6,7 +6,6 @@ export default {
     newPost: async (parent, args, { Blog }) => {
         const find = await findTitle(parent.title)
 
-        console.log(parent)
         if (find) return
 
         const date = getTime()
