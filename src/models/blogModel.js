@@ -4,14 +4,13 @@ const blog = Schema({
     title: {
         type: String
     },
-    content: {
-        type: String,
-        
+    body: {
+        type: String, 
     },
     img: {
         type: String
     },
-    date: {
+    created_at: {
         type: String
     },
     signed: {

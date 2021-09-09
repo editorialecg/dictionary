@@ -3,7 +3,8 @@ import { buildSchema } from 'graphql'
 export default buildSchema(`
 
     type Query{
-        findPost(title: String!): Post!
+        onePost(title: String!): Post!
+        allPost: [Post!]!
     }
 
     type Mutation{
@@ -11,12 +12,11 @@ export default buildSchema(`
     }
 
     type Post{
+        img: String!
         title: String!
         body: String!
-        img: String!
         signed: String!
         created_at: String!
     }
 
-`
-)
+`)

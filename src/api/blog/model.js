@@ -1,10 +1,13 @@
-import { saveblogDao, findTitleDao } from './DAO'
+import { saveblogDao, findTitleDao, allPostDao } from './DAO'
 
 
-export async function saveblog(title, content, img, date, signed) {
-    return await saveblogDao(title, content, img, date, signed)
+export async function saveblog(title, body, img, created_at, signed) {
+    return await saveblogDao(title, body, img, created_at, signed)
 }
 export async function findTitle(title) {
     return await findTitleDao(title)
 }
 
+export async function allPost(){
+    return await allPostDao()
+}
